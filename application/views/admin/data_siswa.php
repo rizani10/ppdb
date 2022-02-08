@@ -39,7 +39,7 @@
                                     <td>
                                         <a href="<?= base_url('admin/detail/') . $s['id_daftar'];; ?>" class="badge badge-primary">Detail</a>
                                         <a href="<?= base_url('admin/edit/') . $s['id_daftar']; ?>" class="badge badge-warning">Edit</a>
-                                        <a href="<?= base_url('admin/hapus/') . $s['id_daftar'] ?>" class="badge badge-danger">Hapus</a>
+                                        <a href="" class="badge badge-danger" data-toggle="modal" data-target="#hapus<?= $s['id_daftar'] ?>">Hapus</a>
                                         <a href="" class="badge badge-secondary">Cetak</a>
                                     </td>
                                 </tr>
@@ -52,3 +52,22 @@
     </div>
     <!-- /.container-fluid -->
 </div>
+
+
+<!-- modal Hapus -->
+<?php foreach ($siswa as $s) : ?>
+    <div class="modal fade" id="hapus<?= $s['id_daftar'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Yakin Ingin Menghapus Menu Data
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <a href="<?= base_url('admin/hapus/' . $s['id_daftar']) ?>" class="btn btn-danger">Hapus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+<!-- modal Hapus -->

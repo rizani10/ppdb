@@ -147,6 +147,7 @@ h2 {
   background-position: center center;
   padding: 115px 0; } */
 
+
 .container {
   width: 500%;
   position: relative;
@@ -197,7 +198,7 @@ h2 {
 
 .form-group {
   overflow: hidden;
-  margin-bottom: 20px; }
+  margin-bottom: 10px; }
 
 .form-input {
   width: 100%;

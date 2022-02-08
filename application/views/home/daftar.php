@@ -27,7 +27,7 @@
             color: #222;
             font-weight: 400;
             font-family: 'Montserrat';
-            /* background-image: url("<?= base_url('assets/img/bg.jpg') ?>"); */
+            background-image: url("<?= base_url('assets/img/bg.jpg') ?>");
             background-repeat: no-repeat;
             background-size: cover;
             -moz-background-size: cover;
@@ -44,13 +44,21 @@
 
     <div class="main">
 
+
         <section class="signup">
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
                     <!-- <form id="signup-form" class="signup-form"> -->
-                    <?= form_open('daftar/tambah'); ?>
+                    <?= form_open('daftar'); ?>
+
+
                     <h2 class="form-title">Formulir Pendaftaran Peserta Didik Baru</h2>
+                    <?= form_error(
+                        'nisn',
+                        '<div class="alert alert-danger" role="alert">',
+                        '</div>'
+                    ); ?>
                     <span> <strong>Data Diri</strong> </span>
                     <form>
 

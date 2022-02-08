@@ -15,7 +15,6 @@ class Admin extends CI_Controller
         $this->load->model('M_siswa');
         $this->load->model('M_daftar');
         $this->load->model('M_admin');
-        
     }
 
 
@@ -102,9 +101,17 @@ class Admin extends CI_Controller
     function hapus($id_daftar)
     {
         $this->db->delete('daftar', ['id_daftar' => $id_daftar]);
-        echo"berhasil";
+        $this->session->set_flashdata(
+            'pesan',
+            '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Data Berhasil Dihapus</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>'
+        );
+
         redirect('admin/datasiswa', 'refresh');
-        
     }
 
 
@@ -162,13 +169,12 @@ class Admin extends CI_Controller
 
 
 
-        
-            $this->load->view('templates/admin_header', $data, FALSE);
-            $this->load->view('templates/sidebar_admin', $data, FALSE);
-            $this->load->view('templates/navbar', FALSE);
-            $this->load->view('admin/add_gallery', $data, FALSE);
-            $this->load->view('templates/admin_footer', FALSE);
-        
+
+        $this->load->view('templates/admin_header', $data, FALSE);
+        $this->load->view('templates/sidebar_admin', $data, FALSE);
+        $this->load->view('templates/navbar', FALSE);
+        $this->load->view('admin/add_gallery', $data, FALSE);
+        $this->load->view('templates/admin_footer', FALSE);
     }
 
 
